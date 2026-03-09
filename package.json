@@ -1,0 +1,24 @@
+{
+    "name": "@fnnm/pi-session-breakdown",
+    "publishConfig": {
+        "access": "public"
+    },
+    "version": "0.1.0",
+    "description": "Interactive TUI for Pi session analysis (usage, cost, models).",
+    "license": "MIT",
+    "author": "fnnm",
+    "keywords": [
+        "pi-package"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fxcl/pi-session-breakdown.git"
+    },
+    "bugs": "https://github.com/fxcl/pi-session-breakdown/issues",
+    "homepage": "https://github.com/fxcl/pi-session-breakdown",
+    "pi": {
+        "extensions": [
+            "index.ts"
+        ]
+    }
+}
