@@ -1,5 +1,43 @@
 export type ModelKey = string; // `${provider}/${model}`
 
+export function formatUsd(n: number): string {
+	if (!Number.isFinite(n) || n === 0) return "$0.0000";
+	if (n >= 100) return `$${n.toFixed(2)}`;
+	if (n >= 1) return `$${n.toFixed(4)}`;
+	return `$${n.toFixed(4)}`;
+}
+
+export function extractCostTotal(usage: unknown): number {
+	if (!usage) return 0;
+
+	const readNum = (v: unknown): number => {
+		if (typeof v === "number") return Number.isFinite(v) ? v : 0;
+		if (typeof v === "string") {
+			const n = Number(v);
+			return Number.isFinite(n) ? n : 0;
+		}
+		return 0;
+	};
+
+	const u = usage as Record<string, unknown>;
+
+	// direct cost fields
+	const cost =
+		readNum(u.cost) ||
+		readNum(u.totalCost) ||
+		readNum(u.total_cost);
+	if (cost > 0) return cost;
+
+	// nested cost object
+	const costObj = u.cost as Record<string, unknown> | undefined;
+	if (costObj && typeof costObj === "object") {
+		const total = readNum(costObj.total) || readNum(costObj.totalCost) || readNum(costObj.total_cost);
+		if (total > 0) return total;
+	}
+
+	return 0;
+}
+
 export function formatCount(n: number): string {
 	if (!Number.isFinite(n) || n === 0) return "0";
 	if (n >= 1_000_000_000) return `${(n / 1_000_000_000).toFixed(1)}B`;

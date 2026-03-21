@@ -25,10 +25,11 @@ import os from "node:os";
 import path from "node:path";
 import fs from "node:fs/promises";
 import { createReadStream, type Dirent } from "node:fs";
-import { extractCostTotal, formatUsd } from "../shared/lib.ts";
 import {
+	extractCostTotal,
 	extractTokensTotal,
 	formatCount,
+	formatUsd,
 	type ModelKey,
 	modelKeyFromParts,
 	mondayIndex,
