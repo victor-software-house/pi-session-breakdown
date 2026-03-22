@@ -16,6 +16,10 @@
     },
     "bugs": "https://github.com/fxcl/pi-session-breakdown/issues",
     "homepage": "https://github.com/fxcl/pi-session-breakdown",
+    "peerDependencies": {
+        "@mariozechner/pi-coding-agent": "*",
+        "@mariozechner/pi-tui": "*"
+    },
     "pi": {
         "extensions": [
             "index.ts"

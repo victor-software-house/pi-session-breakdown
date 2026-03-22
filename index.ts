@@ -15,12 +15,12 @@ import { BorderedLoader } from "@mariozechner/pi-coding-agent";
 import {
 	Key,
 	matchesKey,
-	sliceByColumn,
 	type Component,
 	type TUI,
 	truncateToWidth,
 	visibleWidth,
 } from "@mariozechner/pi-tui";
+import { sliceByColumn } from "@mariozechner/pi-tui/dist/utils.js";
 import os from "node:os";
 import path from "node:path";
 import fs from "node:fs/promises";
