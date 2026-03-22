@@ -20,7 +20,28 @@ import {
 	truncateToWidth,
 	visibleWidth,
 } from "@mariozechner/pi-tui";
-import { sliceByColumn } from "@mariozechner/pi-tui/dist/utils.js";
+/** Keep the rightmost `width` visible columns of `text`. */
+function takeRight(text: string, width: number): string {
+	const w = visibleWidth(text);
+	if (w <= width) return text;
+	// Strip characters from the left until the remainder fits.
+	// Walk forward, skipping ANSI escapes, counting visible columns.
+	const skip = w - width;
+	let col = 0;
+	let i = 0;
+	while (i < text.length && col < skip) {
+		if (text[i] === "\x1b" && text[i + 1] === "[") {
+			let j = i + 2;
+			while (j < text.length && text[j] !== "m") j++;
+			i = j + 1;
+			continue;
+		}
+		const cp = text.codePointAt(i)!;
+		i += cp > 0xffff ? 2 : 1;
+		col++;
+	}
+	return text.slice(i);
+}
 import os from "node:os";
 import path from "node:path";
 import fs from "node:fs/promises";
@@ -629,7 +650,7 @@ function fitRight(text: string, width: number): string {
 	let w = visibleWidth(text);
 	let t = text;
 	if (w > width) {
-		t = sliceByColumn(t, w - width, width, true);
+		t = takeRight(t, width);
 		w = visibleWidth(t);
 	}
 	return " ".repeat(Math.max(0, width - w)) + t;
@@ -714,7 +735,7 @@ function renderLeftRight(left: string, right: string, width: number): string {
 	const rightW = visibleWidth(rightText);
 	if (rightW > remaining) {
 		// Keep the *rightmost* part visible.
-		rightText = sliceByColumn(rightText, rightW - remaining, remaining, true);
+		rightText = takeRight(rightText, remaining);
 	}
 	const pad = Math.max(0, remaining - visibleWidth(rightText));
 	return left + " ".repeat(pad) + rightText;
