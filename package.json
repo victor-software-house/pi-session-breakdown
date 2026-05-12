@@ -1,9 +1,10 @@
 {
-  "name": "@fnnm/pi-session-breakdown",
+  "name": "@victor-software-house/pi-session-breakdown",
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
   },
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Interactive TUI for Pi session analysis (usage, cost, models).",
   "license": "MIT",
   "author": "fnnm",
@@ -12,10 +13,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fxcl/pi-session-breakdown.git"
+    "url": "git+ssh://git@github.com/victor-software-house/pi-session-breakdown.git"
   },
-  "bugs": "https://github.com/fxcl/pi-session-breakdown/issues",
-  "homepage": "https://github.com/fxcl/pi-session-breakdown",
+  "bugs": "https://github.com/victor-software-house/pi-session-breakdown/issues",
+  "homepage": "https://github.com/victor-software-house/pi-session-breakdown",
   "peerDependencies": {
     "@earendil-works/pi-coding-agent": ">=0.74.0",
     "@earendil-works/pi-tui": ">=0.74.0"
