@@ -1,28 +1,35 @@
 {
-    "name": "@fnnm/pi-session-breakdown",
-    "publishConfig": {
-        "access": "public"
-    },
-    "version": "0.1.0",
-    "description": "Interactive TUI for Pi session analysis (usage, cost, models).",
-    "license": "MIT",
-    "author": "fnnm",
-    "keywords": [
-        "pi-package"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/fxcl/pi-session-breakdown.git"
-    },
-    "bugs": "https://github.com/fxcl/pi-session-breakdown/issues",
-    "homepage": "https://github.com/fxcl/pi-session-breakdown",
-    "peerDependencies": {
-        "@mariozechner/pi-coding-agent": "*",
-        "@mariozechner/pi-tui": "*"
-    },
-    "pi": {
-        "extensions": [
-            "index.ts"
-        ]
-    }
+  "name": "@fnnm/pi-session-breakdown",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.1.0",
+  "description": "Interactive TUI for Pi session analysis (usage, cost, models).",
+  "license": "MIT",
+  "author": "fnnm",
+  "keywords": [
+    "pi-package"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fxcl/pi-session-breakdown.git"
+  },
+  "bugs": "https://github.com/fxcl/pi-session-breakdown/issues",
+  "homepage": "https://github.com/fxcl/pi-session-breakdown",
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": ">=0.74.0",
+    "@earendil-works/pi-tui": ">=0.74.0"
+  },
+  "pi": {
+    "extensions": [
+      "index.ts"
+    ]
+  },
+  "packageManager": "pnpm@11.1.1",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "prepublishOnly": "pnpm pack --dry-run"
+  }
 }
