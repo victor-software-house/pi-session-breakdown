@@ -31,6 +31,8 @@
     "node": ">=24.0.0"
   },
   "scripts": {
-    "prepublishOnly": "pnpm pack --dry-run"
+    "prepublishOnly": "pnpm run verify",
+    "test": "node --test lib.test.ts",
+    "verify": "pnpm test"
   }
 }
