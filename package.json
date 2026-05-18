@@ -1,38 +1,38 @@
 {
-  "name": "@victor-software-house/pi-session-breakdown",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "restricted"
-  },
-  "version": "0.1.1",
-  "description": "Interactive TUI for Pi session analysis (usage, cost, models).",
-  "license": "MIT",
-  "author": "fnnm",
-  "keywords": [
-    "pi-package"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/victor-software-house/pi-session-breakdown.git"
-  },
-  "bugs": "https://github.com/victor-software-house/pi-session-breakdown/issues",
-  "homepage": "https://github.com/victor-software-house/pi-session-breakdown",
-  "peerDependencies": {
-    "@earendil-works/pi-coding-agent": ">=0.74.0",
-    "@earendil-works/pi-tui": ">=0.74.0"
-  },
-  "pi": {
-    "extensions": [
-      "index.ts"
-    ]
-  },
-  "packageManager": "pnpm@11.1.1",
-  "engines": {
-    "node": ">=24.0.0"
-  },
-  "scripts": {
-    "prepublishOnly": "pnpm run verify",
-    "test": "node --test lib.test.ts",
-    "verify": "pnpm test"
-  }
+	"name": "@victor-software-house/pi-session-breakdown",
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com",
+		"access": "restricted"
+	},
+	"version": "0.1.2",
+	"description": "Interactive TUI for Pi session analysis (usage, cost, models).",
+	"license": "MIT",
+	"author": "fnnm",
+	"keywords": [
+		"pi-package"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/victor-software-house/pi-session-breakdown.git"
+	},
+	"bugs": "https://github.com/victor-software-house/pi-session-breakdown/issues",
+	"homepage": "https://github.com/victor-software-house/pi-session-breakdown",
+	"peerDependencies": {
+		"@earendil-works/pi-coding-agent": ">=0.75.0",
+		"@earendil-works/pi-tui": ">=0.75.0"
+	},
+	"pi": {
+		"extensions": [
+			"index.ts"
+		]
+	},
+	"packageManager": "pnpm@11.1.1",
+	"engines": {
+		"node": ">=24.0.0"
+	},
+	"scripts": {
+		"prepublishOnly": "pnpm run verify",
+		"test": "node --test lib.test.ts",
+		"verify": "pnpm test"
+	}
 }
